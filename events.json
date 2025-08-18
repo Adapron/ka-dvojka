@@ -1,0 +1,16 @@
+[
+    {
+        "date": "19. 08. 2025",
+        "title": "Mathematics Lecture",
+        "time": "10:00",
+        "location": "Room 101",
+        "description": "Advanced topics in linear algebra."
+    },
+    {
+        "date": "17. 08. 2025",
+        "title": "Music Workshop",
+        "time": "14:00",
+        "location": "Studio B",
+        "description": "Sound design basics on Linux."
+    }
+]

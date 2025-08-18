@@ -1,0 +1,1147 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Template</title>
+    <style>
+        /* style.css */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.top-panel {
+    transition: background 0.3s ease-in-out;
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 70px;
+    background: #fff;
+    color: black;
+    display: flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    padding: 10px 20px;
+    z-index: 1000;
+}
+
+.icon {
+    display: inline-block;   /* instead of block */
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+    
+  background: #e8573c;
+
+  -webkit-mask: var(--mask) no-repeat center;
+  -webkit-mask-size: contain;
+  mask: var(--mask) no-repeat center;
+  mask-size: contain;
+}
+
+.width-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    max-width: 1100px;
+    width: 90%;
+    margin:  0 auto;
+
+}
+
+
+
+
+
+.top-panel .logo {
+    font-weight: bold;
+    margin-right: 20px;
+    align-self: flex-start;
+    height: 90%;
+
+}
+
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 80, 150, 0.5); /* blue overlay */
+    position: absolute; /* add this */
+    top: 0;             /* add this */
+    left: 0;            /* add this */
+    z-index: 0;         /* add this */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+#calendar {
+    display: flex;
+    flex-direction: row;
+    background: rgba(255, 255, 255, 0.8); /* white background with transparency */
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 600px;
+    height: 300px;
+}
+
+#calendar-col{
+    flex: 2;
+    display:flex;
+    flex-direction: column;
+
+}
+#calendar-content{
+    flex: 5;
+    height: 100%;
+}
+
+.event {
+    width: 95%;
+    flex: 1;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    color: #000;
+    font-size: 0.7em;
+    text-align: left;
+    display: flex;           /* add */
+    align-items: center;     /* vertical center */
+    justify-content: flex-start; /* horizontal left */
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+
+}
+
+.event:hover{
+    background-color: rgba(255, 255, 255, 0.5);
+}
+.dark-event{
+    background-color: rgba(100, 100, 100, 0.2);
+
+}
+.dark-event:hover{
+    background-color: rgba(100, 100, 100, 0.2);
+
+}
+
+.nav-links{
+
+    display: flex;
+    position: relative;
+}
+
+.nav-links a {
+    color: black;
+    text-decoration: none;
+    margin: 0 10px;
+
+    position: relative;
+    padding: 0.5rem 0;
+    cursor: pointer;
+}
+
+.underline {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background: #e8573c;
+  border-radius: 2px;
+  transition: left 0.3s ease, width 0.3s ease;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+.social a {
+    color: black;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+.hero .content {
+    display: flex;
+    flex-direction: row; /* horizontal split */
+    width: 80%;
+    max-height: 306px;
+    align-items: left;
+    justify-content: center;
+    position: relative;
+}
+
+.hero .column {
+    flex: 1;
+    text-align: left;
+    align-items: left;
+    justify-content: left;
+    width:100%;
+    height: 100%;
+
+    padding: 20px;
+}
+
+.hero .column.left {
+    flex: 1; /* left column is twice as wide */
+}
+.hero .column.right {
+    flex: 2;
+    display: flex;
+    justify-content: flex-end; /* align content to the right */
+    align-items: center;       /* vertically center if needed */
+}
+
+
+
+#title {
+    font-size: 2.5em;
+    text-align: left;
+    /* bold text */
+    font-weight: bolder;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    
+}
+
+#subtitle {
+    font-size: 0.8em;
+    margin-top: 0px;
+    margin-bottom: 15px;
+    text-align: left;
+    color: #ccc;
+    font-weight: bold;
+}
+/* Divider line */
+.divider {
+    width: 1px;          /* vertical line for horizontal split */
+    min-width: 1px;
+    min-height: 1px;
+    height: 100%;       /* full height of the content */
+    background: #fff;
+
+}
+
+#progress-bar {
+    width: 10px;          /* vertical line for horizontal split */
+    height: 100%;       /* full height of the content */
+
+}
+#progress{
+    width:100%;
+    height: 50%;
+    background: rgba(100, 100, 100, 0.2);
+    
+}
+
+
+
+
+.hero {
+    background: url('files/hero.jpg') center/cover no-repeat;
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative; /* add this */
+    min-height: 80vh;
+}
+
+
+.column {
+    flex: 1;
+    color: white;
+    font-size: 1.8em;
+
+}
+.column p{
+    text-align: left;
+    font-size: 0.6em;
+    font-weight: bold;
+    margin: 0;
+
+}
+
+.contact-widget {
+    background: #fff;
+    color: white;
+    text-align: center;
+
+}
+
+.round-widget {
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* x-offset, y-offset, blur-radius, color */
+
+    background: #fff;
+    width: 100%;
+    height: 100px;
+    margin:  0 auto;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+}
+
+.round-widget p {
+    margin: 0 auto;
+    padding: 0 20px;
+    color: #000;
+
+}
+.round-widget p a {
+    color: inherit; /* optional: keep same color as surrounding text */
+    text-decoration: none;
+
+}
+
+section {
+    padding: 50px;
+    min-height: 300px;
+}
+
+.light {
+    background: #fff;
+    color: #000;
+}
+
+.main{
+    align-items: center;
+    justify-content: top;
+    display: flex;
+    flex-direction: column;
+}
+.main h2 {
+    text-align: center;
+    font-size: 2.5em;
+    font-weight:900;
+    margin: 5px;
+}
+.main p{
+    margin: 5px;
+    font-size: 1.2em;
+    text-align: center;
+}
+
+.main li{
+    margin: 5px;
+    font-size: 1.2em;
+}
+
+.main .line{
+    height: 4px;
+    width: 10vh;
+    background-color: #e8573c;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.dark {
+    background: #f5f5f5;
+    color: #000;
+}
+
+.footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.transparent {
+    background: rgba(255, 255, 0, 0);
+    transition: background 0.3s ease-in-out;
+
+}
+.top-panel .logoB {
+    display: block;
+}
+.top-panel .logoW {
+    display: none;
+}
+.transparent .logoB {
+    display: none;
+}
+.transparent .logoW {
+    display: block;
+}
+
+.transparent .nav-links a {
+    color: white;
+}
+
+#banner-rotator {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.banner {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    transition: opacity 1s;
+    object-fit: cover;
+    z-index: 1;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+
+}
+.banner.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.box {
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    height: fit-content;
+    text-align: left;
+    padding: 60px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 50px;
+    margin-left: 0;
+    font-size: large;
+    
+}
+.box h2{
+    text-align: left;
+
+
+}
+.box li{
+    margin-left: 50px;
+}
+.box p{
+    text-align: left;
+    margin: 15px;
+    margin-left: 0;
+
+}
+
+.calendar-label{
+    border-bottom: 1px solid #e8573c;
+    margin-top: 20px;
+    width: 100%;
+    height: fit-content;
+}
+.calendar-label div{
+    background-color: #e8573c;
+    color: white;
+    width: fit-content;
+    padding: 7px;
+
+}
+
+.calendar-long{
+    width: 100%;
+}
+
+.calendar-event{
+    display: flex;
+    flex-direction: row;
+    align-content: left;
+
+    margin: 0 auto;
+
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+
+    padding-bottom: 25px;    
+    padding-top: 15px;    
+
+}
+
+.event-banner{
+    height: 300px;
+    max-width: 600px;
+    flex: 2;
+    margin-right: 20px;
+}
+.event-banner img{
+    border-radius: 15px;
+
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+}
+
+.event-details{
+    flex:1;
+}
+
+
+.calendar-event p{
+    text-align: left;
+    font-size: larger;
+    padding-left: 50px;
+    margin-bottom: 20px;
+}
+
+/* Switch to vertical layout on small screens */
+@media (max-width: 1000px) {
+    .hero .content {
+        flex-direction: column;
+        height: 80vh;
+        max-height: 60vh;
+    }
+    .hero{
+        height: 700px;
+    }
+    .divider {
+        width: 100%;
+        height: 4px;
+        min-height: 4px;
+        background: #fff;
+        display: block;
+        margin: 24px 0;
+    }
+    #title {
+        font-size: 5vh;
+    }
+
+    .column p {
+        font-size: 2vh;
+    }
+
+    #calendar{
+        width: 100%;
+        height: 30vh;
+    }
+    
+}
+
+@media (max-width: 1000px) {
+    .round-widget {
+        flex-direction: column; /* stack items vertically */
+        height: auto;           /* let height grow */
+        align-items: center; /* align left */
+        justify-content: flex-start;
+        padding: 16px 0;
+
+    }
+    .round-widget p {
+        margin: 8px 0;          /* spacing between items */
+        width: 100%;            /* prevent wrapping */
+        text-align: center;
+        font-size: 2vh;
+    }
+}
+
+/* General footer styling */
+.footer1, .footer2, footer.footer {
+    font-family: "Arial", sans-serif;
+    color: #f0f0f0;
+    background-color: #1c1c1c;
+    line-height: 1.5;
+    align-content: center;
+    
+}
+
+
+
+/* Big column styling */
+.footer1 .bigcol {
+    flex: 2 1 300px;
+    margin-right: 30px;
+    align-self: flex-start;
+    padding-top: 50px;
+}
+
+.footer1 .bigcol img.logoB {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.footer1 .bigcol p {
+    font-size: 14px;
+    color: #cccccc;
+}
+
+/* Regular columns */
+.footer1 .col {
+    flex: 1 1 200px;
+    margin-bottom: 20px;
+    align-self: flex-start;
+    padding-top: 50px;
+}
+
+.footer1 .col h2 {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+/* Icon styling */
+.footer1 .icon {
+    margin-right: 8px;
+}
+
+/* Footer2 styling */
+.footer2 {
+    display: flex;
+    align-items: flex-start;
+    background-color: #111111;
+    padding: 30px 20px;
+    width:100%;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.footer2 .bigI {
+    font-size: 60px;
+    font-weight: bold;
+    color: #ffffff;
+    flex-shrink: 0;
+    margin-right: 20px;
+}
+
+.footer2 p {
+    font-size: 14px;
+    color: #dddddd;
+    margin: 0;
+}
+
+/* Bottom copyright footer */
+footer.footer {
+    text-align: center;
+    padding: 15px 20px;
+    font-size: 13px;
+    color: #888888;
+    background-color: #0a0a0a;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .footer1 .width-container {
+        flex-direction: column;
+    }
+    .footer2 {
+        flex-direction: column;
+    }
+    .footer2 .bigI {
+        font-size: 40px;
+    }
+}
+
+
+    </style>
+    <script>
+    function scrollToSection(id) {
+        const headerOffset = 70; // height of fixed header
+        const element = document.getElementById(id);
+        const elementPosition = element.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+    }
+    </script>
+
+    
+
+</head>
+<body>
+    <!-- Top Panel -->
+    <header class="top-panel transparent" id="header">
+        <div class="width-container">
+            <div class="logo" onclick="scrollToTop()">
+                <img class="logoB" src="files/ka-dvojka-black.svg" alt="Logo" width="100%" height="100%">
+                <img class="logoW" src="files/ka-dvojka-white.svg" alt="Logo" width="100%" height="100%">
+            </div>
+
+            <nav class="nav-links">
+                <a onclick="scrollToSection('section1')">O nás</a>
+                <a onclick="scrollToSection('section2')">Co děláme</a>
+                <a onclick="scrollToSection('section3')">Kalendář akcí</a>
+                <a onclick="scrollToSection('section4')">Záznamy</a>
+                <div class="underline"></div>
+            </nav>
+            <div class="social">
+                <a href="https://youtube.com" target="_blank"><div class="icon" style="--mask: url('files/youtube.svg')"></div></a>
+                <a href="https://facebook.com" target="_blank"><div class="icon" style="--mask: url('files/facebook.svg')"></div></a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Hero -->
+    <section class="hero">
+        <div class="overlay">
+        <div class="content width-container" >
+            <div class="column left">
+                <p id="title">VÍRA <br>
+                NADĚJE<br>
+                LÁSKA</p>
+                <p>HODNOTY, NA KTERÝCH ZÁLEŽÍ</p>
+            </div>
+
+            <div class="divider"></div>
+
+            <div class="column right">
+                <div id = "calendar">
+                    <div id = "calendar-col">
+                        <!-- populated by javascript -->
+                    </div>
+                    <div id="progress-bar"><div id="progress"></div></div>
+                    <div id = "calendar-content">
+                        <div id="banner-rotator">
+                        <!-- populated by javascript -->
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Widget -->
+    <div class="contact-widget">
+        <div class="width-container">
+            <div class="round-widget">
+                <p><a href="https://mapy.com/en/zakladni?q=M%C4%9BDK%20Karvin%C3%A1%2C%20t%C5%99.%20Osvobozen%C3%AD%201639%2F43%2C%20735%2006%20Karvin%C3%A1&source=firm&id=231563&ds=2&x=18.5381218&y=49.8627373&z=17"><span class="icon" style="--mask: url('files/marker.svg')"></span> MěDK Karviná, tř. Osvobození 1639/43, 735 06 Karviná</a></p>
+                <p><a href="javascript:void(0)" onclick="copyPhone('+420 608 823 540')"><span class="icon" style="--mask: url('files/phone-call.svg')"></span> +420 608 823 540</a></p>
+                <div id="clipboard-toast" style="
+                    position: fixed;
+                    bottom: 20px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    background: black;
+                    color: white;
+                    padding: 0.5em 1em;
+                    border-radius: 4px;
+                    opacity: 0;
+                    transition: opacity 0.3s;
+                    pointer-events: none;
+                    ">Copied!</div>
+                <p><a href="mailto:info@ka-dvojka.cz"><span class="icon" style="--mask: url('files/envelope.svg')"></span> info@ka-dvojka.cz</a></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Content Sections -->
+    <section id="section1" class="main light">
+        <h2>Moderní církev<br>Srozumitelná cesta k Bohu</h2>
+        <div class="line"></div>
+        <p>Evangelický sbor Ka-Dvojka představuje formu moderní církve s důrazem na srozumitelnost a otevřenost.</p>
+        <p>Zveme každého člověka – křesťana, sympatizanta, hledajícího i nevěřícího.</p>
+        <p>Chceme změnit Váš pohled na církev a věříme, že to jde dělat jinak.</p>
+    </section>
+
+    <section id="section2" class="main dark">
+        <div class="width-container" style="flex-direction: column;">
+            <h2>Co děláme</h2>
+            <div class="line"></div>
+            <div class="box">
+                
+                <h2>Nedělní setkání</h2>
+                <div class="line"></div>
+                <p>Nedělní setkání se koná v <strong>obřadní síni Městského kulturního domu v Karviné</strong> 2x měsíčně v předem oznámených termínech. Začátek je vždy v <strong>9:30 hod.</strong>, doba trvání je cca 70 minut. Atmosféra je přátelská a neformální, setkání je otevřené pro každého příchozího. Základ nedělního setkání tvoří tento ustálený program:</p>
+                <li><strong>kázání</strong> – krátké a praktické zamyšlení nad životní realitou současného člověka pohledem Bible</li>
+                <li><strong>hudba</strong> – vyjádření našeho vztahu k Bohu</li>
+                <li><strong>modlitba</strong> – příležitost hovořit s Bohem</li>
+                <p>Pro děti je připraven vlastní program ve vedlejší místnosti.</p>
+                <p>Po skončení setkání následuje drobné občerstvení, šálek dobré kávy a příležitost k rozhovorům a navazování nových kontaktů.</p>
+
+            </div>
+            <div class="box">
+                <h2>Objevování křesťanství</h2>
+                <div class="line"></div>
+                <p>Cyklus osmi večerních setkání, který zájemcům představí základy toho, čemu křesťané věří a jak žijí. Pracujeme s Markovým evangeliem a hledáme odpovědi na různé otázky související s křesťanským životem. Cyklus Objevování křesťanství může absolvovat každý zájemce, podmínkou není aktivní křesťanská víra, znalost Bible ani žádný jiný závazek vůči sboru. Jedno setkání trvá cca 2 hodiny a účast je bezplatná.</p>
+                <p>Termín konání nejbližšího cyklu  Objevování křesťanství včas oznámíme. Máte-li zájem o účast, napište nám.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="section3" class="main light">
+        <div class="width-container" style="flex-direction: column;">
+
+            <h2>Kalendář akcí</h2>
+            <div class="line"></div>
+            <div class="calendar-long" id="calendar-long">        
+                <!-- populated by javascript -->
+            </div>
+        </div>
+    </section>
+
+    <section id="section4" class="main dark">
+        <div class="width-container" style="flex-direction: column;">
+            <h2>Záznamy kázání</h2>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/episode/2pplq2Hn7okygcHdKxZB3U?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            <p>Zde naleznete nejnovější záznam z pravidelného kázání. Starší kázání naleznete po klikuntí na Archív. Přehrát si nás můžete i na Spotify a nebo odebírat RSS.</p> 
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div class = "footer1">
+        <div class="width-container">
+            <div class = "bigcol">
+                <img class="logoB" src="files/ka-dvojka-white.svg" alt="Logo" width="100%" height="100%">
+                <p>Evangelický sbor Ka-Dvojka je kazatelskou stanicí Českobratrské církve evangelické v Karviné a organizačně spadá pod Evangelický sbor a.v. ČCE v Českém Těšíně.</p>
+            </div>
+            <div class = "col">
+                <h2>Evangelický sbor Ka-Dvojka</h2>
+                <p><span class="icon" style="--mask: url('files/marker.svg')"></span>tř. Osvobození 1639/43</p>
+                <p><span class="icon" style="--mask: url('files/city.svg')"></span>735 06 Karviná</p>
+                <p><span class="icon" style="--mask: url('files/envelope.svg')"></span>info@ka-dvojka.cz</p>
+                <p><span class="icon" style="--mask: url('files/phone-call.svg')"></span>+420 608 823 540</p>
+                <p><span class="icon" style="--mask: url('files/bank.svg')"></span>Číslo účtu: 2001767990/2010 (FIO&nbsp;banka)</p>
+            </div>
+            <div class = "col">
+                <h2>Evangelický sbor a.v. ČCE</h2>
+                <p><span class="icon" style="--mask: url('files/marker.svg')"></span>náměstí Dr. M. Luthera 1</p>
+                <p><span class="icon" style="--mask: url('files/city.svg')"></span>737 01  Český Těšín</p>
+                <p><span class="icon" style="--mask: url('files/circle.svg')"></span>IČ 45239282</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer2">
+        <div class="width-container">
+            <div class="bigI">i</div> <!-- this is big, left of the rest of the text -->
+            <p>V roce 2023 realizujeme projekt pod názvem „Rozvoj kazatelské stanice ČCE Karviná – podpora on-line přenosu bohoslužeb“. Podpora je poskytnutá z Grantového systému ČCE na podporu diakonických a rozvojových projektů v rámci výzvy Rozvoj sborů, výchova a vzdělávání 2023. </p>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; Všechna práva vyhrazena.</p>
+    </footer>
+    <script>
+var isOpaque = false; // Track if header is opaque
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+    updateScroll();
+});
+document.addEventListener('DOMContentLoaded', () => {
+    updateScroll(); // Initial check on page load   
+});
+
+function updateScroll(){
+    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    //add class "change"
+	if(scrollTop > 10){
+		if(!isOpaque){
+			header.classList.remove("transparent");
+		}
+		isOpaque = true;
+	}else{
+		if(isOpaque){
+			header.classList.add("transparent");
+
+		}
+		isOpaque = false;
+
+	}
+}
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+<script>
+
+async function loadCalendar(){
+const template = `
+    <div class="calendar-label">
+        <div class="day-label">[dd. mm. yyyy]</div>
+    </div>
+
+    <div class="calendar-event dark" >
+        <div class="event-details">
+            <p><strong><a [link] target="_blank">[title]</a></strong></p>
+            <p>[time] | [location]</p>
+            <p>[description]</p>
+        </div>
+        [banner]
+    </div>    
+`;
+function excelTimeToHHMM(excelTime) {
+    const totalMinutes = Math.round(excelTime * 24 * 60);
+    const hours = Math.floor(totalMinutes / 60);
+    const minutes = totalMinutes % 60;
+    return `${hours.toString().padStart(2,'0')}:${minutes.toString().padStart(2,'0')}`;
+}
+async function loadExcelEvents() {
+    const response = await fetch("events.xlsx?nocache=" + Date.now(), {
+        cache: "no-store"
+    });
+    const arrayBuffer = await response.arrayBuffer();
+    const workbook = XLSX.read(arrayBuffer, { type: "array" });
+    const sheet = workbook.Sheets[workbook.SheetNames[0]];
+    const rows = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+    
+    const events = rows.map(r => ({
+        date: r[0],
+        title: r[1],
+        time: excelTimeToHHMM(r[2]),
+        location: r[3],
+        description: r[4],
+        link: r[5],
+        banner: r[6],
+        important: r[7]
+    })).filter(r => r.date);
+    return events;
+}
+
+const allEvents = await loadExcelEvents();
+console.log(allEvents)
+
+function getNextImportantEvents(events, n) {
+  const seen = new Set();
+
+  // normalize date strings like "19. 08. 2025" → valid Date
+  function parseDate(str) {
+    if (!str) return null;
+    const clean = str.replace(/\s+/g, '');
+    const parts = clean.split(/[.\-\/]/).filter(Boolean);
+    if (parts.length < 3) return null;
+    const [d, m, y] = parts.map(Number);
+    return new Date(y, m - 1, d);
+  }
+
+  return events
+    .filter(e => e.important)                           // only important
+    .map(e => ({...e, parsed: parseDate(e.date)}))      // attach parsed date
+    .filter(e => e.parsed && e.parsed >= new Date())    // future or today
+    .filter(e => {
+      if (seen.has(e.title)) return false;
+      seen.add(e.title);
+      return true;
+    })
+    .sort((a, b) => a.parsed - b.parsed)                // ascending by date
+    .slice(0, n)                                        // take n
+    .map(e => { delete e.parsed; return e; });          // clean parsed
+}
+function nextEvents(events, n = 10) {
+    const now = new Date();
+    return events
+        .map(ev => ({...ev, _date: new Date(ev.date.split(".").reverse().join("-"))}))
+        .filter(ev => {
+            const evDate = ev._date;
+            return evDate >= now || (
+                evDate.getFullYear() === now.getFullYear() &&
+                evDate.getMonth() === now.getMonth() &&
+                evDate.getDate() === now.getDate()
+            );
+        })
+        .sort((a, b) => a._date - b._date)
+        .slice(0, n)
+        .map(({_date, ...ev}) => ev);
+}
+
+
+const next10Events = nextEvents(allEvents, 10);
+const nextImportantEvents = getNextImportantEvents(allEvents, 5);
+console.log(nextImportantEvents)
+
+
+const buttonDiv = document.getElementById("calendar-col");
+const bannerDiv = document.getElementById("banner-rotator");
+
+const buttonTemplate = `<div class="event" onclick="setBanner([index])">[title]</div>`
+const bannerTemplate = `<img src="banners/[banner]" class="banner">`
+for(let i = 0; i < nextImportantEvents.length; i++){
+    let ev = nextImportantEvents[i];
+    let buttonHTML = buttonTemplate
+        .replace("[index]", i)
+        .replace("[title]", ev.title)
+    let bannerHTML = bannerTemplate
+        .replace("[banner]", ev.banner)
+
+    
+    buttonDiv.innerHTML += buttonHTML;
+    bannerDiv.innerHTML += bannerHTML;
+
+}
+loadBannerRotator();
+// nextImportantEvents.forEach(ev => {
+
+//                             <img src="banners/cat1.jpg" class="banner active">
+//                             <img src="banners/cat2.jpg" class="banner">
+//                             <img src="banners/cat3.jpg" class="banner">
+//                             <img src="banners/dog1.jpg" class="banner">
+//                             <img src="banners/dog2.png" class="banner">
+//                         <div class="event" onclick="setBanner(0)">Nedělní setkání dva řádky</div>
+//                         <div class="event" onclick="setBanner(1)">Vaječina</div>
+//                         <div class="event" onclick="setBanner(2)">horská dráha</div>
+//                         <div class="event" onclick="setBanner(3)">horská dráha</div>
+//                         <div class="event" onclick="setBanner(4)">horská dráha</div>
+    
+// });
+
+
+const container = document.getElementById("calendar-long");
+
+next10Events.forEach(ev => {
+    if(!ev.location){
+        ev.location = "[místo]"
+    }
+    if(!ev.description){
+        ev.description = "";
+    }
+    if(ev.link){
+        ev.link="href=\"https://"+ev.link+"\"";
+    }
+    else{
+        ev.link="";
+    }
+
+    if(ev.banner){
+        ev.banner = `
+        <div class="event-banner">            
+            <img src="banners/`+ev.banner+`">        
+        </div>`
+    }else{
+        ev.banner="";
+    }
+    let html = template
+        .replace("[dd. mm. yyyy]", ev.date)
+        .replace("[title]", ev.title)
+        .replace("[time]", ev.time)
+        .replace("[location]", ev.location)
+        .replace("[description]", ev.description)
+        .replace("[link]", ev.link)
+        .replace("[banner]", ev.banner);
+    container.innerHTML += html;
+});
+
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    loadCalendar(); // Initial check on page load   
+});
+</script>
+<script>
+
+const progressStep = 0.3; // percent per tick
+const tickTime = 50; // ms
+var events;
+var banners;
+var progressBar;
+
+let currentIndex = 0;
+let progress = 0;
+let interval = null;
+let progressInterval = null;
+
+function nextBanner() {
+    currentIndex = (currentIndex + 1) % banners.length;
+    showBanner(currentIndex);
+}
+
+
+
+function startRotation() {
+    if (!progressInterval) {
+        progressInterval = setInterval(updateProgressBar, tickTime);
+    }
+}
+
+function stopRotation() {
+    clearInterval(progressInterval);
+    progressInterval = null;
+}
+function showBanner(index) {
+    banners.forEach((img, i) => {
+        img.classList.toggle('active', i === index);
+    });
+    events.forEach((ev, i) => {
+        ev.classList.toggle('dark-event', i === index);
+    });
+}
+
+function setBanner(n){
+    showBanner(n);
+    progress = (n/events.length)*100;
+    updateProgressBar();
+}
+function updateProgressBar() {
+    progress += progressStep;
+    if (progress >= 100) {
+        progress = 0;
+    }
+    // Calculate which event to highlight
+    let eventIndex = Math.floor((progress / 100) * events.length);
+    if (eventIndex >= events.length) eventIndex = events.length - 1;
+    showBanner(eventIndex);
+    progressBar.style.height = progress + '%';
+}
+
+function loadBannerRotator(){
+    const calendar = document.getElementById('calendar');
+    banners = document.querySelectorAll('#banner-rotator .banner');
+    events = document.querySelectorAll('#calendar-col .event');
+    progressBar = document.getElementById('progress');
+
+    
+
+    
+
+    calendar.addEventListener('mouseenter', stopRotation);
+    calendar.addEventListener('mouseleave', startRotation);
+
+    // Initial state
+    showBanner(0);
+    progressBar.style.height = '0%';
+    startRotation();
+    }
+</script>
+
+<script>
+const links = document.querySelectorAll('.nav-links a');
+const underline = document.querySelector('.underline');
+
+function moveUnderline(el) {
+  underline.style.width = el.offsetWidth + 'px';
+  underline.style.left = el.offsetLeft + 'px';
+}
+
+// detect section in view
+const sections = [...links].map(a => document.getElementById(a.getAttribute("onclick").match(/'(.*)'/)[1]));
+
+window.addEventListener('scroll', () => {
+  const offset = 150;
+    const pos = window.innerHeight/2 - offset;
+
+    let index = sections.findIndex(sec => {
+    const rect = sec.getBoundingClientRect();
+    return rect.top <= pos && rect.bottom >= pos;
+    });
+  if (index !== -1) moveUnderline(links[index]);
+});
+
+// optional: initial position
+moveUnderline(links[0]);
+
+</script>
+<script>
+function copyPhone(number) {
+  navigator.clipboard.writeText(number).then(() => {
+    const toast = document.getElementById("clipboard-toast");
+    toast.style.opacity = 1;
+    setTimeout(() => toast.style.opacity = 0, 1000);
+  });
+}
+
+</script>
+</body>
+</html>

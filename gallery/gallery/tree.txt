@@ -1,0 +1,16 @@
+.
+├── cats
+│   ├── cat1.jpg
+│   ├── cat2.jpg
+│   └── cat3.jpg
+├── dogs
+│   ├── dog1.jpg
+│   ├── dog2.png
+│   ├── dog3.png
+│   └── subdogs
+│       ├── dog1.jpg
+│       ├── dog2.png
+│       └── dog3.png
+└── tree.txt
+
+4 directories, 10 files

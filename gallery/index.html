@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Gallery</title>
+<style>
+body { font-family: sans-serif; margin: 0; }
+#selector { padding: 10px; background: #eee; }
+#images { display: flex; flex-wrap: wrap; gap: 8px; padding: 10px; }
+#images img { max-width: 200px; cursor: pointer; border-radius: 4px; }
+#overlay {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.8); display: none; align-items: center; justify-content: center;
+}
+#overlay img { max-width: 90%; max-height: 90%; }
+</style>
+</head>
+<body>
+
+<div id="selector">
+  <select id="folderSelect"></select>
+</div>
+<div id="images"></div>
+<div id="overlay"><img></div>
+
+<script>
+async function init() {
+    const res = await fetch('gallery/tree.txt');
+    const treeText = await res.text();
+    const data = parseTree(treeText);
+    console.log(data)
+
+    const folderSelect = document.getElementById('folderSelect');
+    Object.keys(data).forEach(folder => {
+        const opt = document.createElement('option');
+        opt.value = folder;
+        opt.textContent = folder;
+        folderSelect.appendChild(opt);
+    });
+
+    folderSelect.addEventListener('change', () => loadImages(data[folderSelect.value]));
+    folderSelect.value = Object.keys(data)[0];
+    loadImages(data[folderSelect.value]);
+}
+
+function parseTree(text) {
+    const lines = text.split(/\r?\n/).map(l => l.trimEnd()).filter(Boolean);
+    const data = {};
+    let currentFolder = null;
+
+    for (let rawLine of lines) {
+        // Remove box-drawing chars and excess spaces
+        const line = rawLine.replace(/[│├└─]/g, '').trim();
+
+        // Folder line (no dot, not root ".")
+        if (!line.includes('.') && line !== '.') {
+            currentFolder = line;
+            data[currentFolder] = [];
+            continue;
+        }
+
+        // File line
+        if (currentFolder && /\.(jpe?g|png|gif)$/i.test(line)) {
+            data[currentFolder].push(`${currentFolder}/${line}`);
+        }
+    }
+    return data;
+}
+
+
+function loadImages(images) {
+    const container = document.getElementById('images');
+    container.innerHTML = '';
+    const bust = Date.now(); // changes on each reload
+    images.forEach(src => {
+        const img = document.createElement('img');
+        img.src = 'gallery/' + src + '?v=' + bust;
+        img.onclick = () => showOverlay(img.src);
+        container.appendChild(img);
+    });
+}
+
+
+function showOverlay(src) {
+    const overlay = document.getElementById('overlay');
+    overlay.querySelector('img').src = src;
+    overlay.style.display = 'flex';
+}
+
+document.getElementById('overlay').onclick = function() {
+    this.style.display = 'none';
+};
+
+init();
+</script>
+</body>
+</html>
